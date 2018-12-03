@@ -1,7 +1,7 @@
 ---
-title: 'Post 1'
+title: 'Post 3'
 date: '2018-11-29'
-slug: '/first-post'
+slug: '/third-post'
 ---
 
 # Hello
