@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
+import Archive from './Archive'
 import Header from './header'
 import './layout.css'
 
@@ -16,6 +17,22 @@ const Layout = ({ children }) => (
             desc
           }
           host
+        }
+
+        allMarkdownRemark(
+          limit: 5
+          sort: { fields: [frontmatter___date], order: DESC }
+        ) {
+          edges {
+            node {
+              excerpt(pruneLength: 20)
+              frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+              }
+              html
+            }
+          }
         }
       }
     `}
@@ -39,9 +56,8 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
-          {data.site.host}
-          {data.site.siteMetadata.desc}
           {children}
+          <Archive />
         </div>
       </>
     )}
