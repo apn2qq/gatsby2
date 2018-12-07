@@ -1,5 +1,5 @@
 ---
-title: 'Post 1'
+title: 'Post number 1'
 date: '2018-11-29'
 slug: '/first-post'
 ---

@@ -10,9 +10,12 @@ import Layout from './layout'
 
 class PostLayout extends Component {
   render() {
+    const {
+      data: { markdownRemark },
+    } = this.props
     return (
       <Layout>
-        <h1>Privet</h1>
+        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </Layout>
     )
   }
@@ -21,8 +24,8 @@ class PostLayout extends Component {
 export default PostLayout
 
 export const query = graphql`
-  query PostLayout {
-    markdownRemark(frontmatter: { slug: { eq: "/second-post" } }) {
+  query PostLayout($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
