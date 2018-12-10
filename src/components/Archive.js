@@ -8,7 +8,7 @@ const ArchiveList = styled.ul`
   list-style: none;
 
   a {
-    text-decoration-style: wavy;
+    text-decoration: none;
     color: rebeccapurple;
   }
 `

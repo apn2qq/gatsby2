@@ -1,5 +1,5 @@
 ---
-title: 'Post number 1'
+title: 'Тайные виды на гору Фудзи'
 date: '2018-11-29'
 slug: '/first-post'
 ---

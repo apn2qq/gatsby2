@@ -1,5 +1,5 @@
 ---
-title: 'Post nomer 3'
+title: 'Тварь размером с колесо обозрения'
 date: '2018-11-29'
 slug: '/third-post'
 ---

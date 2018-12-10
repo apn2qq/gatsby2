@@ -6,6 +6,9 @@ import styled from 'styled-components'
 import Archive from './Archive'
 import Header from './header'
 import './layout.css'
+import Img from 'gatsby-image'
+import { Spring } from 'react-spring'
+import { hidden } from 'ansi-colors'
 
 const Wrapper = styled.main`
   margin: 0 auto;
@@ -17,7 +20,7 @@ const Wrapper = styled.main`
   grid-gap: 40px;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -26,7 +29,6 @@ const Layout = ({ children }) => (
             title
             desc
           }
-          host
         }
 
         allMarkdownRemark(
@@ -44,6 +46,14 @@ const Layout = ({ children }) => (
             }
           }
         }
+
+        file(relativePath: { regex: "/bg/" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
       }
     `}
     render={data => (
@@ -58,6 +68,16 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
+        <Spring
+          from={location.pathname === '/' ? { height: 100 } : { height: 500 }}
+          to={location.pathname === '/' ? { height: 500 } : { height: 100 }}
+        >
+          {styles => (
+            <div style={{ overflow: 'hidden', ...styles }}>
+              <Img fluid={data.file.childImageSharp.fluid} />
+            </div>
+          )}
+        </Spring>
         <Wrapper>
           <div>{children}</div>
           <Archive />

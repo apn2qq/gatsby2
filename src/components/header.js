@@ -3,25 +3,13 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Root = styled.div`
-  background: #00c9ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #92fe9d,
-    #00c9ff
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #92fe9d,
-    #00c9ff
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  margin-bottom: 1.45rem;
+  background: #00c9ff;
+  background: #362646;
 `
 
 const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.45rem 1.0875rem;
 `
 
 const Header = ({ siteTitle }) => (

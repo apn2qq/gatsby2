@@ -2,7 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
-const Article = styled.article``
+const Article = styled.article`
+  margin-bottom: 3rem;
+  background-color: #fbfbfb;
+  padding: 1rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+
+  a {
+    text-decoration: none;
+    color: #161616;
+
+    &:focus,
+    &:active {
+      color: #161616;
+    }
+  }
+
+  .read-more {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    transform: translate(8px, 8px);
+  }
+`
 
 const Listing = () => (
   <StaticQuery
@@ -40,7 +64,9 @@ const Listing = () => (
               </Link>
               <p>{date}</p>
               <p>{excerpt}</p>
-              <Link to={`/posts${slug}`}>Read more</Link>
+              <Link className={'read-more'} to={`/posts${slug}`}>
+                Read more
+              </Link>
             </Article>
           )
         )}
