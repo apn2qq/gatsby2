@@ -8,7 +8,6 @@ import Header from './header'
 import './layout.css'
 import Img from 'gatsby-image'
 import { Spring } from 'react-spring'
-import { hidden } from 'ansi-colors'
 
 const Wrapper = styled.main`
   margin: 0 auto;
@@ -89,6 +88,10 @@ const Layout = ({ children, location }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+}
+
+Layout.defaultProps = {
+  location: {},
 }
 
 export default Layout
