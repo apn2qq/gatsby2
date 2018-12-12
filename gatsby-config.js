@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
     desc: 'test',
+    siteUrl: `https://www.example.com`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -35,10 +36,11 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark',
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-netlify-cms',
+    'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
   ],
 }
